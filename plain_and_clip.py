@@ -3,6 +3,7 @@ from config import s_tables, p_tables
 
 
 def text_to_list16bit(text):
+    """Переводить текст в список 16-ти бітових послідовностей"""
     list16bit = []
     for i in text:
         list16bit.append(format(ord(i), '016b'))
@@ -10,6 +11,7 @@ def text_to_list16bit(text):
 
 
 def list_16bit_to_hex(list_16bit):
+    """Перетворює список 16-ти бітових послідовностей в список hex чисел"""
     hex_list = []
     for i in list_16bit:
         n = int(i, 2)
@@ -19,6 +21,7 @@ def list_16bit_to_hex(list_16bit):
 
 
 def hex_to_list_16bit(hex_list):
+    """Перетворює список hex чисел в список 16-ти бітових послідовностей"""
     list_16bit = []
     for i in hex_list:
         n = int(i, 16)
@@ -28,6 +31,7 @@ def hex_to_list_16bit(hex_list):
 
 
 def list16bit_to_text(list16bit):
+    """Перетворює список 16-ти бітових послідовностей в текст"""
     text = ""
     for i in list16bit:
         text += chr(int(i, 2))
@@ -35,6 +39,7 @@ def list16bit_to_text(list16bit):
 
 
 def clip_text(text):
+    """Приймає текст, повертає зашифровану послідовність hex чисел"""
     n = text_to_list16bit(text)
     enc_16bit = []
     for i in n:
@@ -45,6 +50,7 @@ def clip_text(text):
 
 
 def plain_text(clip_list):
+    """Приймає зашифровану hex послідовність, повертає відкритий текст"""
     clip_list = clip_list.split()
     n = hex_to_list_16bit(clip_list)
     dec_16bit = []
@@ -56,6 +62,7 @@ def plain_text(clip_list):
 
 
 def text_to_hex(text):
+    """Перетворює текст в hex послідовність"""
     list16bit = text_to_list16bit(text)
     hextext = list_16bit_to_hex(list16bit)
     return " ".join(hextext)

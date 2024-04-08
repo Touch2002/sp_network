@@ -8,6 +8,8 @@ def s_block(bits, s_table):
 
 
 def p_block(bit, p_table):
+    """Приймає набір бітів та таблицю перестановки, створює послідовність s в яку покроково додаються біти
+    в послідовності згідно p-таблиці"""
     s = ""
     k = 0
     m = 0
@@ -22,6 +24,7 @@ def p_block(bit, p_table):
 
 
 def sp_encode(bit, s_table, p_table):
+    """Здійсьнює пряме перетворення для послідовності з 16-ти біт"""
     k = 0
     s_number = 0
     while k < 3:
@@ -38,6 +41,7 @@ def sp_encode(bit, s_table, p_table):
 
 
 def reverse_s_table(table):
+    """Робить з s-таблицю для звротнього перетворення"""
     zipl = list(zip(table[1], table[0]))
     zipl.sort()
     revers_table = [[], []]
@@ -48,6 +52,7 @@ def reverse_s_table(table):
 
 
 def p_decode(bit, p_table):
+    """Приймає p-таблицю та послідовність бітів, повертає біти на свої місця"""
     revers = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15]
     k = 0
     m = 0
@@ -67,6 +72,7 @@ def p_decode(bit, p_table):
 
 
 def sp_decode(bit, s_table, p_table):
+    """Декодує послідовність з 16-ти біт"""
     k = -1
     s_number = -1
     while k > -4:

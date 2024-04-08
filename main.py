@@ -5,6 +5,8 @@ from read_and_write import file_read, save_result
 
 
 def main():
+    """Користуватський інтерфейс для програми"""
+
     print("Привіт я програма, виберіть необхідний параметер\n"
           "Якщо вам потрібно зашифрувати текст введіть 1 та ентер\n"
           "Якщо потрібно розшифрувати текст введіть 2 та ентер")
@@ -103,7 +105,7 @@ def main():
 
 
 def test():
-    # test sp_network and test config
+    """test sp_network and test config"""
     bit = "1111011101010010"
     enc_bit = sp_encode(bit, s_tables, p_tables)
     print("encode ", sp_encode(bit, s_tables, p_tables))
@@ -116,5 +118,6 @@ def test():
 
 
 if __name__ == '__main__':
+    """Програма процює тільки якщо цей файл запущений як основний"""
     main()
     # test()
