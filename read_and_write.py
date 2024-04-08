@@ -11,15 +11,20 @@ def file_read(file_name):
     return file_content
 
 
-def save_result(text, enc_dec):
+def save_result(text):
     print("\nВи також можете записати результат в текстовий файл\n"
           "Щоб це зробити введіть 1 та натисніть ентер\n"
           "Якщо ви не бажаєте зберігати результат просто натисніть ентер")
     res = input()
     if res == "1":
-        if enc_dec == 'enc':
-            file_write(text, "clip_text.txt")
+        print('Введіть під якою назвою потрібно зберегти результат\n'
+              'Введіть назву файлу з розширенням, наприклад "file.txt" (без лапок)')
+        in_text = input()
+        if in_text == '':
+            print("Ви не вказали назву файлу, повертаюсь на початок")
+        elif in_text[:-5:-1] != "txt.":
+            print("Ви не вказали розширення .txt, повертаюсь на початок")
         else:
-            file_write(text, "plain_text.txt")
+            file_write(text, in_text)
     else:
         print("Зашифрований текст не буде збережено повертаюсь на початок програми")

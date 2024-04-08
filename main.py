@@ -29,7 +29,7 @@ def main():
                     clip = clip_text(text)
                     print("Закритий текст")
                     print(clip)
-                    save_result(clip, 'enc')
+                    save_result(clip)
 
                 except FileNotFoundError:
                     print("Файл з такою назвою не знайдено\n"
@@ -47,7 +47,7 @@ def main():
                 clip = clip_text(text)
                 print("Закритий текст")
                 print(clip)
-                save_result(clip, 'enc')
+                save_result(clip)
 
             else:
                 print("Ви не вірно ввели параметр повертаюсь на початок")
@@ -71,7 +71,7 @@ def main():
                     print(plain)
                     print("Відкритий текст в шістнадцятковому представленні")
                     print(text_to_hex(plain))
-                    save_result(plain, 'dec')
+                    save_result(plain)
 
                 except FileNotFoundError:
                     print("Файл з такою назвою не знайдено\n"
@@ -92,7 +92,7 @@ def main():
                     print(plain)
                     print("Відкритий текст в шістнадцятковому представленні")
                     print(text_to_hex(plain))
-                    save_result(plain, 'dec')
+                    save_result(plain)
                 except ValueError:
                     print("Підчас декодування сталася помилка, можливо введена вами послідовність неправильна")
             else:
