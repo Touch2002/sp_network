@@ -1,6 +1,6 @@
 from sp_network import sp_encode, sp_decode
 from config import s_tables, p_tables
-from plain_and_clip import plain_text, clip_text
+from plain_and_clip import plain_text, clip_text, text_to_hex
 from read_and_write import file_read, save_result
 
 
@@ -22,8 +22,12 @@ def main():
                 file_name = input()
                 try:
                     text = file_read(file_name)
+                    print("Відкритий текст")
                     print(text)
+                    print("Відкритий текст в шістнадцятковому вигляді")
+                    print(text_to_hex(text))
                     clip = clip_text(text)
+                    print("Закритий текст")
                     print(clip)
                     save_result(clip, 'enc')
 
@@ -36,8 +40,12 @@ def main():
             elif parameter1 == "2":
                 print("Можете починати вводити текст який хочети зашифрувати")
                 text = input()
+                print("Відкритий текст")
                 print(text)
+                print("Відкритий текст в шістнадцятковому вигляді")
+                print(text_to_hex(text))
                 clip = clip_text(text)
+                print("Закритий текст")
                 print(clip)
                 save_result(clip, 'enc')
 
@@ -56,9 +64,13 @@ def main():
                 file_name = input()
                 try:
                     text = file_read(file_name)
+                    print("Закритий текст")
                     print(text)
                     plain = plain_text(text)
+                    print("Відкритий текст")
                     print(plain)
+                    print("Відкритий текст в шістнадцятковому представленні")
+                    print(text_to_hex(plain))
                     save_result(plain, 'dec')
 
                 except FileNotFoundError:
@@ -72,10 +84,14 @@ def main():
             elif parameter2 == "2":
                 print("Можете починати вводити зашифровану послідовність шістнадцяткових чисел які хочете розшифрувати")
                 clip = input()
+                print("Закритий текст")
                 print(clip)
                 try:
                     plain = plain_text(clip)
+                    print("Відкритий текст")
                     print(plain)
+                    print("Відкритий текст в шістнадцятковому представленні")
+                    print(text_to_hex(plain))
                     save_result(plain, 'dec')
                 except ValueError:
                     print("Підчас декодування сталася помилка, можливо введена вами послідовність неправильна")

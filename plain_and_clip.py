@@ -54,7 +54,20 @@ def plain_text(clip_list):
     res = list16bit_to_text(dec_16bit)
     return res
 
+
+def text_to_hex(text):
+    list16bit = text_to_list16bit(text)
+    hextext = list_16bit_to_hex(list16bit)
+    return " ".join(hextext)
+
 """
+def hex_to_text(hex_text):
+    hex_text = hex_text.split()
+    pl_text = hex_to_list_16bit(hex_text)
+    res = list16bit_to_text(pl_text)
+    return res
+
+
 m = text_to_list16bit("ЇїІі Привіт світе, вітаю вас!")
 m1 = list16bit_to_text(m)
 print(m)
@@ -62,4 +75,11 @@ print(m1)
 cc = "Вісьсьсь"
 print(clip_text(cc))
 print(plain_text(clip_text(cc)))
+k = " ".join(list_16bit_to_hex(m))
+print(k)
+
+text = "bla bla bla"
+hex_text = text_to_hex(text)
+print(hex_text)
+print(hex_to_text(hex_text))
 """
