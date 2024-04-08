@@ -74,7 +74,7 @@ def main():
                 clip = input()
                 print(clip)
                 try:
-                    plain = plain_text(clip.split())
+                    plain = plain_text(clip)
                     print(plain)
                     save_result(plain, 'dec')
                 except ValueError:
